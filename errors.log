@@ -1,0 +1,113 @@
+2016/03/01 19:00:51 [error] 7805#7805: *150889 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected '[' in /var/www/vk-analyzer/app/Http/Controllers/VkGroupController.php on line 56
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/vk-analyzer/public/index.php:0
+PHP message: PHP   2. Illuminate\Foundation\Http\Kernel->handle() /var/www/vk-analyzer/public/index.php:54
+PHP message: PHP   3. Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:99
+PHP message: PHP   4. Illuminate\Pipeline\Pipeline->then() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:132
+PHP message: PHP   5. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP   6. Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP   7. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:32}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:32
+PHP message: PHP   8. Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:32
+PHP message: PHP   9. call_user_func_array:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:124}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:124
+PHP message: PHP  10. Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:124
+PHP message: PHP  11. Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illum
+2016/03/01 19:01:12 [error] 7805#7805: *150889 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected '[' in /var/www/vk-analyzer/app/Http/Controllers/VkGroupController.php on line 58
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/vk-analyzer/public/index.php:0
+PHP message: PHP   2. Illuminate\Foundation\Http\Kernel->handle() /var/www/vk-analyzer/public/index.php:54
+PHP message: PHP   3. Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:99
+PHP message: PHP   4. Illuminate\Pipeline\Pipeline->then() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:132
+PHP message: PHP   5. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP   6. Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP   7. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:32}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:32
+PHP message: PHP   8. Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:32
+PHP message: PHP   9. call_user_func_array:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:124}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:124" while reading response header from upstream, client: 217.173.65.6, server: vk.ivanok.ru, request: "GET /vk-group/habr HTTP/1.1", upstream: "fastcgi://unix:/var/run/php5-fpm.sock:", host: "vk.ivanok.ru", referrer: "http://vk.ivanok.ru/"
+2016/03/01 19:01:12 [error] 7805#7805: *150889 FastCGI sent in stderr: "
+PHP message: PHP  10. Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:124
+PHP message: PHP  11. Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/CheckForMaintenanceMode.php:44
+PHP message: PHP  12. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:52}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:52
+PHP message: PHP  13. Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:52
+PHP message: PHP  14. Illuminate\Routing\Router->dispatch() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:246
+PHP message: PHP  15. Illuminate\Routing\Router->dispatchToRoute() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Router.php:675
+PHP message: PHP  16. Illuminate\Routing\Router->findRoute() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Router.php:691
+PHP message: PHP  17. Illuminate\Routing\Router->substituteBindings() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Router.php:827
+PHP message: PHP  18. Illuminate\Routing\Router->substituteImplicitBindings() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Router.php:844
+PHP message: PHP  19. Illuminate\Routing\Route->signatureParameters() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Router.php:859
+PHP message: PHP  20. ReflectionMethod->__construct() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Route.php:264
+PHP message: PHP  21. spl_autoload_call() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Route.php:264
+PHP message: PHP  22
+2016/03/01 19:02:04 [error] 7805#7805: *150889 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Cannot use object of type stdClass as array in /var/www/vk-analyzer/app/Http/Controllers/VkGroupController.php on line 58
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/vk-analyzer/public/index.php:0
+PHP message: PHP   2. Illuminate\Foundation\Http\Kernel->handle() /var/www/vk-analyzer/public/index.php:54
+PHP message: PHP   3. Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:99
+PHP message: PHP   4. Illuminate\Pipeline\Pipeline->then() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:132
+PHP message: PHP   5. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP   6. Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP   7. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:32}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:32
+PHP message: PHP   8. Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:32
+PHP message: PHP   9. call_user_func_array:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:124}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:124
+PHP message: PHP  10. Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:124
+PHP message: PHP  11. Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/fram
+2016/03/01 19:02:04 [error] 7805#7805: *150889 FastCGI sent in stderr: "140
+PHP message: PHP  24. Illuminate\Routing\ControllerDispatcher->dispatch() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Route.php:174
+PHP message: PHP  25. Illuminate\Routing\ControllerDispatcher->callWithinStack() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php:54
+PHP message: PHP  26. Illuminate\Pipeline\Pipeline->then() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php:96
+PHP message: PHP  27. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP  28. Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP  29. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:52}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:52
+PHP message: PHP  30. Illuminate\Routing\ControllerDispatcher->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:52
+PHP message: PHP  31. Illuminate\Routing\ControllerDispatcher->call() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php:94
+PHP message: PHP  32. Illuminate\Routing\Controller->callAction() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php:146
+PHP message: PHP  33. call_user_func_array:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:78}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:78
+PHP message: PHP  34. App\Http\Controllers\VkGroupController->show() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:7
+2016/03/01 19:02:41 [error] 7805#7805: *150889 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Cannot use object of type stdClass as array in /var/www/vk-analyzer/app/Http/Controllers/VkGroupController.php on line 58
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/vk-analyzer/public/index.php:0
+PHP message: PHP   2. Illuminate\Foundation\Http\Kernel->handle() /var/www/vk-analyzer/public/index.php:54
+PHP message: PHP   3. Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:99
+PHP message: PHP   4. Illuminate\Pipeline\Pipeline->then() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:132
+PHP message: PHP   5. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP   6. Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP   7. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:32}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:32
+PHP message: PHP   8. Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:32
+PHP message: PHP   9. call_user_func_array:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:124}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:124
+PHP message: PHP  10. Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:124
+PHP message: PHP  11. Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/fram
+2016/03/01 19:02:41 [error] 7805#7805: *150889 FastCGI sent in stderr: "140
+PHP message: PHP  24. Illuminate\Routing\ControllerDispatcher->dispatch() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Route.php:174
+PHP message: PHP  25. Illuminate\Routing\ControllerDispatcher->callWithinStack() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php:54
+PHP message: PHP  26. Illuminate\Pipeline\Pipeline->then() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php:96
+PHP message: PHP  27. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP  28. Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP  29. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:52}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:52
+PHP message: PHP  30. Illuminate\Routing\ControllerDispatcher->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:52
+PHP message: PHP  31. Illuminate\Routing\ControllerDispatcher->call() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php:94
+PHP message: PHP  32. Illuminate\Routing\Controller->callAction() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php:146
+PHP message: PHP  33. call_user_func_array:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:78}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:78
+PHP message: PHP  34. App\Http\Controllers\VkGroupController->show() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:7
+2016/03/01 19:08:07 [error] 7805#7805: *150992 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Cannot use object of type stdClass as array in /var/www/vk-analyzer/app/Http/Controllers/VkGroupController.php on line 58
+PHP message: PHP Stack trace:
+PHP message: PHP   1. {main}() /var/www/vk-analyzer/public/index.php:0
+PHP message: PHP   2. Illuminate\Foundation\Http\Kernel->handle() /var/www/vk-analyzer/public/index.php:54
+PHP message: PHP   3. Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:99
+PHP message: PHP   4. Illuminate\Pipeline\Pipeline->then() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:132
+PHP message: PHP   5. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP   6. Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP   7. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:32}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:32
+PHP message: PHP   8. Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:32
+PHP message: PHP   9. call_user_func_array:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:124}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:124
+PHP message: PHP  10. Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:124
+PHP message: PHP  11. Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/fram
+2016/03/01 19:08:07 [error] 7805#7805: *150992 FastCGI sent in stderr: "140
+PHP message: PHP  24. Illuminate\Routing\ControllerDispatcher->dispatch() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Route.php:174
+PHP message: PHP  25. Illuminate\Routing\ControllerDispatcher->callWithinStack() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php:54
+PHP message: PHP  26. Illuminate\Pipeline\Pipeline->then() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php:96
+PHP message: PHP  27. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP  28. Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:103
+PHP message: PHP  29. call_user_func:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:52}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:52
+PHP message: PHP  30. Illuminate\Routing\ControllerDispatcher->Illuminate\Routing\{closure}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Pipeline.php:52
+PHP message: PHP  31. Illuminate\Routing\ControllerDispatcher->call() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php:94
+PHP message: PHP  32. Illuminate\Routing\Controller->callAction() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php:146
+PHP message: PHP  33. call_user_func_array:{/var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:78}() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:78
+PHP message: PHP  34. App\Http\Controllers\VkGroupController->show() /var/www/vk-analyzer/vendor/laravel/framework/src/Illuminate/Routing/Controller.php:7
