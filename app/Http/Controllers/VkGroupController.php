@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\VkGroupModel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -21,15 +20,15 @@ class VkGroupController extends Controller
         $source = $request->get('source');
 
         switch ($source) {
-            case \App\Models\VkGroupModel::SOURCE_VK:
+            case \App\Models\VK\GroupModel::SOURCE_VK:
 
                 $groups = [];
 
                 return view('group.list-vk', ['groups' => $groups]);
 
-            case \App\Models\VkGroupModel::SOURCE_DB:
+            case \App\Models\VK\GroupModel::SOURCE_DB:
 
-                $groups = \App\Models\VkGroupModel::where('name', 'like', $query)->orWhere('id', '=', $query)->paginate();
+                $groups = \App\Models\VK\GroupModel::where('name', 'like', $query)->orWhere('id', '=', $query)->paginate();
 
                 return view('group.list', ['groups' => $groups]);
         }

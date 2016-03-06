@@ -12,5 +12,5 @@ use App\Models\VkBaseModel;
 
 class GroupModel extends VkBaseModel
 {
-    //
+    const SOURCE_VK = 'vk';
 }
