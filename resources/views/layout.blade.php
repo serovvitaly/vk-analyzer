@@ -7,6 +7,9 @@
     <link href="//cdn.muicss.com/mui-0.4.6/css/mui.min.css" rel="stylesheet" type="text/css" />
     <script src="//cdn.muicss.com/mui-0.4.6/js/mui.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/members-icons/css/members_icons_white.css">
+
     <style>
         /**
          * Body CSS
@@ -58,7 +61,11 @@
 </head>
 <body>
 <div id="sidebar">
-    <div class="mui--text-light mui--text-display1 mui--align-vertical">VK.ANAL</div>
+    <div class="mui--text-light mui--text-display1 mui--align-vertical">
+        <div class="icon icon-postgresql" style="height: 100px; width: 100px; margin: auto; opacity: 0.5;"></div>
+        VK.ANAL
+        <div class="mui--text-subhead" style="color: #F9C8C8;">VK API ANALYZER</div>
+    </div>
 </div>
 <div id="content" class="mui-container-fluid">
     @yield('content')

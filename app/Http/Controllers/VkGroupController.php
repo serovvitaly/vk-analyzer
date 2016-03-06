@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\VkGroupModel;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -11,11 +12,27 @@ class VkGroupController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $query  = $request->get('query');
+        $source = $request->get('source');
+
+        switch ($source) {
+            case \App\Models\VkGroupModel::SOURCE_VK:
+
+                $groups = [];
+
+                return view('group.list-vk', ['groups' => $groups]);
+
+            case \App\Models\VkGroupModel::SOURCE_DB:
+
+                $groups = \App\Models\VkGroupModel::where('name', 'like', $query)->orWhere('id', '=', $query)->paginate();
+
+                return view('group.list', ['groups' => $groups]);
+        }
     }
 
     /**
@@ -25,7 +42,7 @@ class VkGroupController extends Controller
      */
     public function create()
     {
-        //
+        //VkGroupModel::create();
     }
 
     /**
