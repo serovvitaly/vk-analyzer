@@ -38,4 +38,11 @@ abstract class Object
     {
         return $this->is_from_cache;
     }
+
+    public function set($name, $value)
+    {
+        $this->$name = trim($value);
+
+        return $this;
+    }
 }

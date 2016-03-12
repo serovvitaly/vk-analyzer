@@ -28,6 +28,28 @@ function get_group_by_gname($gname){
 
 }
 
+Route::get('/phpinfo', function () {
+    phpinfo();
+});
+
+Route::get('/test2', function (Illuminate\Http\Request $request) {
+
+    dispatch( new \App\Jobs\VkApi\TakePostComments(-4503260, 500162) );
+
+    //dispatch( new \App\Jobs\VkApi\GetPostsForPullComments() );
+
+    return;
+
+
+    $sphinx = new \App\Services\Sphinx\SphinxClient;
+
+    $sphinx->SetServer('localhost', 9312);
+
+    $result = $sphinx->Query('мультфильм', 'test1');
+
+    return $result;
+});
+
 Route::get('/test', function (Illuminate\Http\Request $request) {
 
     $group_id = $request->get('gid');

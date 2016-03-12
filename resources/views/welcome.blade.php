@@ -53,7 +53,7 @@
                 type: 'get',
                 data: {
                     query: $('#field-group-identifier').val(),
-                    source: '{{ \App\Models\VkGroupModel::SOURCE_VK }}'
+                    source: '{{ \App\Models\VK\GroupModel::SOURCE_VK }}'
                 },
                 success: function(html){
                     $('#ajax-content-container').html(html);

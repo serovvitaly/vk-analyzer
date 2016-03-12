@@ -90,6 +90,16 @@ class Request
         return $this;
     }
 
+    public function getParam($param_name)
+    {
+        if ( ! array_key_exists($param_name, $this->params_arr) ) {
+
+            return null;
+        }
+
+        return $this->params_arr[$param_name];
+    }
+
     /**
      * Выполняет запрос
      * @return $this
@@ -98,29 +108,6 @@ class Request
     public function exec()
     {
         $this->doRequest();
-
-        if ( $this->response->isList() ) {
-
-            $max_count_for_list = $this->getMaxCountForList();
-
-            $this->set('count', $max_count_for_list);
-
-            $list_count = $this->response->getListCount();
-
-            $list_count = 810;
-
-            $items_count = $this->response->getItemsCount();
-
-            for ($offset = $items_count; $offset < $list_count; $offset += $items_count) {
-
-                sleep(1);
-
-                $this->set('offset', $offset);
-
-                $this->doRequest();
-            }
-
-        }
 
         return $this;
     }

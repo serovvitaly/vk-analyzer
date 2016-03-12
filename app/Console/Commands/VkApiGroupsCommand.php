@@ -3,9 +3,12 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class VkApiGroupsCommand extends Command
 {
+    use DispatchesJobs;
+
     /**
      * The name and signature of the console command.
      *
@@ -91,6 +94,12 @@ class VkApiGroupsCommand extends Command
             return;
         }
 
+        $job = (new \App\Jobs\VkApi\TakeGroup($query))->delay(60 * 5);
+
+        $this->dispatch($job);
+        
+        return;
+
         /**
          * @var \App\Services\VkApi\Objects\Group $group
          */
@@ -109,13 +118,8 @@ class VkApiGroupsCommand extends Command
 
     protected function _getById()
     {
-        $group_id = (int) $this->argument('param1');
+        $job = (new \App\Jobs\VkApi\TakeGroup($this->argument('param1')))->delay(60 * 1);
 
-        if ( $group_id < 1) {
-            $this->warn('Метод не известен - ' . $this->argument('method'));
-            return;
-        }
-
-        $this->info('getById #' . $group_id);
+        $this->dispatch($job);
     }
 }
