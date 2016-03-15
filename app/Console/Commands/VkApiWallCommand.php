@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Services\VkApi\ListIterator;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
@@ -47,6 +48,30 @@ class VkApiWallCommand extends Command
         }
 
         $this->$method_name();
+    }
+
+    public function _go()
+    {
+
+        $this->info(microtime());
+        usleep(300000);
+        $this->info(microtime());
+
+
+        return;
+
+        $users = \App\Models\VK\UserModel::whereNull('posts_count')->take(1)->get();
+
+        print_r($users);
+
+        return;
+
+        $posts_list_iterator = \App\Services\VkApi\Requests\Wall::instance()
+            ->set('owner_id', 21117624)
+            ->set('filter', 'others')
+            ->set('count', 2)
+            ->set('offset', 5)
+            ->get();
     }
 
     public function _get()

@@ -5,6 +5,8 @@
 
 namespace App\Services\VkApi\Requests;
 
+use App\Services\VkApi\ListIterator;
+use App\Services\VkApi\Objects\User;
 use App\Services\VkApi\Request;
 
 class Groups extends Request
@@ -83,13 +85,16 @@ class Groups extends Request
 
         $response_json = $this->getResponse()->getJson();
 
-        if (empty($response_json)) {
+        $list_iterator = new ListIterator;
 
-            //
+        $list_iterator->setTotalCount($response_json->count);
+
+        foreach ($response_json->items as $item_json_obj) {
+
+            $list_iterator[] = User::makeFromJson($item_json_obj);;
         }
 
-        $members_count = $response_json->count;
-        $members_items = $response_json->items;
+        return $list_iterator;
     }
 
 }

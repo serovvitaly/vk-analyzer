@@ -45,9 +45,6 @@ class TakeWall extends Job implements ShouldQueue
             ->set('offset', $this->offset)
             ->get();
 
-    //    \Log::info('Загрузка постов: owner_id = '.$this->owner_id.'; TotalCount = '.$posts_list_iterator->getTotalCount()
-    //        .'; offset = '.$this->offset.'; items_count = ' .count($posts_list_iterator). '');
-
         if ( ! count($posts_list_iterator) ) {
 
             return;
@@ -62,6 +59,7 @@ class TakeWall extends Job implements ShouldQueue
             $post_model->owner_id = $post_obj->getOwnerId();
             $post_model->from_id = $post_obj->getFromId();
             $post_model->date = date('Y-m-d H:i:s', $post_obj->getDate());
+            $post_model->unixtime = $post_obj->getDate();
             $post_model->text = $post_obj->getText();
             $post_model->comments = $post_obj->getComments();
             $post_model->likes = $post_obj->getLikes();

@@ -23,6 +23,7 @@ class Post extends Object
     protected $post_type;       // тип записи, может принимать следующие значения: post, copy, reply, postpone, suggest
     protected $post_source;     // информация о способе размещения записи
     protected $signer_id;       // идентификатор автора, если запись была опубликована от имени сообщества и подписана пользователем
+    protected $is_repost;       // пост является Репостом
 
     /**
      * @param $json_obj
@@ -33,18 +34,24 @@ class Post extends Object
         $post_obj = new self;
 
         $post_obj->set('id', intval($json_obj->id));
-        $post_obj->set('owner_id', $json_obj->owner_id);
-        $post_obj->set('from_id', $json_obj->from_id);
+        $post_obj->set('owner_id', intval($json_obj->owner_id));
+        $post_obj->set('from_id', intval($json_obj->from_id));
         $post_obj->set('date', intval($json_obj->date));
         $post_obj->set('text', $json_obj->text);
-        //$post_obj->set('reply_owner_id', $json_obj->reply_owner_id);
-        //$post_obj->set('reply_post_id', $json_obj->reply_post_id);
+        $post_obj->set('reply_owner_id', self::getFromObj($json_obj, 'reply_owner_id'));
+        $post_obj->set('reply_post_id', self::getFromObj($json_obj, 'reply_post_id'));
         $post_obj->set('comments', $json_obj->comments->count);
         $post_obj->set('likes', $json_obj->likes->count);
         $post_obj->set('reposts', $json_obj->reposts->count);
         $post_obj->set('post_type', $json_obj->post_type);
         //$post_obj->set('post_source', json_decode($json_obj->post_source));
         //$post_obj->set('signer_id', $json_obj->signer_id);
+
+        /**
+         * Если пост содержит историю репостов, то помечаем его как Репост
+         */
+        $copy_history = self::getFromObj($json_obj, 'copy_history');
+        $post_obj->set('is_repost', ($copy_history ? 1 : 0));
 
         return $post_obj;
     }
@@ -151,5 +158,13 @@ class Post extends Object
     public function getSignerId()
     {
         return $this->signer_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsRepost()
+    {
+        return $this->is_repost;
     }
 }

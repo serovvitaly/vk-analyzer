@@ -45,4 +45,13 @@ abstract class Object
 
         return $this;
     }
+
+    public static function getFromObj($obj, $field)
+    {
+        if ( property_exists($obj, $field) ) {
+            return $obj->$field;
+        }
+
+        return null;
+    }
 }

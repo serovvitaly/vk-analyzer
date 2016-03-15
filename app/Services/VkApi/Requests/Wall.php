@@ -31,6 +31,8 @@ class Wall extends Request
 
         $list_iterator = new ListIterator;
 
+        $list_iterator->setSourceJson($response_json);
+
         $list_iterator->setTotalCount($response_json->count);
 
         foreach ($response_json->items as $item_json_obj) {
@@ -42,7 +44,56 @@ class Wall extends Request
     }
 
     /**
-     * @return ListIterator|array
+     * Метод, позволяющий осуществлять поиск по стенам пользователей или сообществ.
+     * @see https://vk.com/dev/wall.search
+     * @return ListIterator
+     */
+    public function search()
+    {
+        $this->setMethodName('wall.search');
+
+        $this->setAvailableParams(['owner_id','domain','query','owners_only','offset','count','extended','fields']);
+
+        $this->setRequiredParams(['query']);
+
+        $this->exec();
+
+        $response_json = $this->getResponse()->getJson();
+
+        $list_iterator = new ListIterator;
+
+        $list_iterator->setSourceJson($response_json);
+
+        $list_iterator->setTotalCount($response_json->count);
+
+        foreach ($response_json->items as $item_json_obj) {
+
+            $list_iterator[] = Post::makeFromJson($item_json_obj);
+        }
+
+        return $list_iterator;
+    }
+
+    /**
+     * Позволяет получать список репостов заданной записи.
+     * @see https://vk.com/dev/wall.getReposts
+     * @return ListIterator
+     */
+    public function getReposts()
+    {
+        $this->setMethodName('wall.getReposts');
+
+        $this->setAvailableParams(['owner_id','post_id','offset','count','need_likes']);
+
+        $this->setRequiredParams(['owner_id', 'post_id']);
+
+        $this->exec();
+    }
+
+    /**
+     * Возвращает список комментариев к записи на стене.
+     * @see https://vk.com/dev/wall.getComments
+     * @return ListIterator
      * @throws \App\Services\VkApi\RequestException
      */
     public function getComments()
@@ -54,7 +105,6 @@ class Wall extends Request
         $this->setRequiredParams(['owner_id', 'post_id']);
 
         $this->exec();
-
         
         $list_iterator = new ListIterator;
 

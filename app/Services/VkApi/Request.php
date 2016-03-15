@@ -29,14 +29,15 @@ class Request
     protected $method_name;
 
     protected $params_arr = [
-        'v' => '5.45'
+        'v' => '5.50',
+        'lang' => 'ru'
     ];
 
     /**
      * Допустимые параметры для запроса
      * @var array
      */
-    protected $available_params = ['v'];
+    protected $available_params = ['v','lang'];
 
     /**
      * Обязательные параметры для запроса

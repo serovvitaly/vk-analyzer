@@ -28,15 +28,70 @@ function get_group_by_gname($gname){
 
 }
 
+Route::get('/tm/{group_id}', function ($group_id) {
+
+    $grouping_size = 60 * 10; // Группировка по времени, в секундах
+
+    $dates_arr = \DB::table('vk_posts')->select('date')->where('owner_id', '=', $group_id)->get();
+
+    if ( empty($dates_arr) ) {
+        return view('group.time-line', ['average_arr' => []]);
+    }
+
+    $by_days_arr = [];
+
+    foreach ($dates_arr as $date) {
+
+        $time = strtotime($date->date);
+
+        $y_m_d = date('Y-m-d', $time);
+
+        $start_day_time = strtotime($y_m_d . ' 00:00:00');
+
+        $seconds_from_day_start = $time - $start_day_time;
+
+        $block_number = ceil($seconds_from_day_start / $grouping_size);
+
+        $h_i_s = date('H:i:s', $start_day_time + $block_number * $grouping_size);
+
+        if ( ! array_key_exists($y_m_d, $by_days_arr) or ! array_key_exists($h_i_s, $by_days_arr[$y_m_d]) ) {
+            $by_days_arr[$y_m_d][$h_i_s] = 0;
+        }
+
+        $by_days_arr[$y_m_d][$h_i_s]++;
+    }
+
+    $average_arr = [];
+
+    for ($tm = strtotime(date('Y-m-d 00:00:00')); $tm <= strtotime(date('Y-m-d 23:59:59')); $tm += $grouping_size) {
+        $h_i_s = date('H:i:s', $tm);
+        $average_arr[$h_i_s] = 0;
+    }
+
+    foreach ($by_days_arr as $y_m_d => $h_i_s_counts_arr) {
+
+        foreach ($h_i_s_counts_arr as $h_i_s => $count) {
+
+            if ( ! array_key_exists($h_i_s, $average_arr) ) {
+                continue;
+            }
+
+            $average_arr[$h_i_s] += $count;
+        }
+    }
+
+    ksort($average_arr);
+
+    return view('group.time-line', ['average_arr' => $average_arr]);
+});
+
 Route::get('/phpinfo', function () {
     phpinfo();
 });
 
 Route::get('/test2', function (Illuminate\Http\Request $request) {
 
-    dispatch( new \App\Jobs\VkApi\TakePostComments(-4503260, 500162) );
-
-    //dispatch( new \App\Jobs\VkApi\GetPostsForPullComments() );
+    dispatch( new \App\Jobs\VkApi\GetPostsForPullComments );
 
     return;
 

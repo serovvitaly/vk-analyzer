@@ -3,6 +3,7 @@
 namespace App\Jobs\VkApi;
 
 use App\Jobs\Job;
+use App\Models\VK\PostModel;
 use App\Services\VkApi\ListIterator;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Queue\SerializesModels;
@@ -33,20 +34,36 @@ class TakePostComments extends Job implements ShouldQueue
     /**
      * Execute the job.
      *
-     * @return void
      */
     public function handle()
     {
         /**
          * @var ListIterator $comments_list_iterator
          */
-        $comments_list_iterator = \App\Services\VkApi\Requests\Wall::instance()
-            ->set('owner_id', $this->owner_id)
-            ->set('post_id', $this->post_id)
-            ->set('count', 100)
-            ->set('offset', $this->offset)
-            ->set('need_likes', 1)
-            ->getComments();
+
+        try {
+
+            $comments_list_iterator = \App\Services\VkApi\Requests\Wall::instance()
+                ->set('owner_id', $this->owner_id)
+                ->set('post_id', $this->post_id)
+                ->set('count', 100)
+                ->set('offset', $this->offset)
+                ->set('need_likes', 1)
+                ->getComments();
+
+        }
+        catch (\App\Services\VkApi\ResponseException $exception) {
+
+            switch ($exception->getCode()) {
+                case 15:
+                    $post = PostModel::findOrFail($this->post_id);
+                    $post->is_deleted = 1;
+                    \Log::info('Post is deleted, post_id = ' . $this->post_id);
+                    return;
+            }
+
+            throw $exception;
+        }
 
     //    \Log::info('Загрузка комментов 22: owner_id = '.$this->owner_id.'; post_id = '.$this->post_id.'; TotalCount = '.$comments_list_iterator->getTotalCount()
     //        .'; offset = '.$this->offset.'; items_count = ' .count($comments_list_iterator). '');
